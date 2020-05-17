@@ -27,6 +27,7 @@
         <table schema="public" tableName="owner">
             <generatedKey column="id" identity="true" sqlStatement="JDBC" />
         </table>
-        <table schema="public" tableName="model_owners" />
+        <table schema="public" tableName="model_owners">
+        </table>
     </context>
 </generatorConfiguration>

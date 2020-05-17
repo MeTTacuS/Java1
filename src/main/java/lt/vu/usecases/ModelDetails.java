@@ -3,10 +3,10 @@ package lt.vu.usecases;
 import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Model;
-import lt.vu.mybatis.model.Owner;
 import lt.vu.mybatis.dao.ModelOwnersMapper;
 import lt.vu.mybatis.dao.OwnerMapper;
 import lt.vu.mybatis.model.ModelOwners;
+import lt.vu.mybatis.model.Owner;
 import lt.vu.persistence.ModelsDAO;
 
 import javax.annotation.PostConstruct;
@@ -53,16 +53,16 @@ public class ModelDetails {
         this.model = modelsDAO.findOne(modelId);
         loadModel(modelId);
         loadModelOwners(modelId);
-        loadModelFreeOwners(modelId);
+        loadModelOwnersFree(modelId);
     }
+
+    private void loadModel(Integer modelId) { this.model = modelsDAO.findOne(modelId); }
 
     private void loadModelOwners(Integer modelId){
         this.ownerList = ownerMapper.selectOwnersByModel(modelId);
     }
 
-    private void loadModelFreeOwners(Integer modelId) { this.ownerListFree = ownerMapper.selectOwnersByModelFree(modelId); }
-
-    private void loadModel(Integer modelId) { this.model = modelsDAO.findOne(modelId); }
+    private void loadModelOwnersFree(Integer modelId) { this.ownerListFree = ownerMapper.selectOwnersByModelFree(modelId); }
 
     @Transactional
     public String addOwner(){
