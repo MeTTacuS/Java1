@@ -43,4 +43,7 @@ public interface OwnerMapper {
      * @mbg.generated Sun May 17 16:08:46 EEST 2020
      */
     int updateByPrimaryKey(Owner record);
+
+    List<Owner> selectOwnersByModel(Integer modelId);
+    List<Owner> selectOwnersByModelFree(Integer modelId);
 }
