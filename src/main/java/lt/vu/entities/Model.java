@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Model.findAll", query = "select m from Model as m where m.factory.id=:factoryId")
+        @NamedQuery(name = "Model.findAll", query = "select m from Model as m where m.factory.id =: factoryId")
 })
 @Table(name = "MODEL")
 @Getter @Setter
@@ -22,15 +22,17 @@ public class Model {
     private Integer id;
 
     @Size(max = 50)
-    @Column(name = "NAME")
     private String name;
 
     @ManyToMany()
-    @JoinTable(name = "MODEL_OWNER")
+    @JoinTable(name = "MODEL_OWNERS")
     private List<Owner> owners = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "FACTORY_ID")
     private Factory factory;
+
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
 
 }

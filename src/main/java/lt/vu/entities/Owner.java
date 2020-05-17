@@ -22,7 +22,6 @@ public class Owner {
     private Integer id;
 
     @Size(max = 50)
-    @Column(name = "NAME")
     private String name;
 
     @ManyToMany(mappedBy = "owners")

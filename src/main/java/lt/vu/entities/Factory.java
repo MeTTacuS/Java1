@@ -21,7 +21,6 @@ public class Factory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "NAME")
     private String name;
 
     @OneToMany(mappedBy = "factory")
