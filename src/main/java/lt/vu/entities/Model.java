@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Table(name = "MODEL")
 @Getter @Setter
 @EqualsAndHashCode
-public class Model {
+public class Model implements Serializable {
     public Model() {}
 
     @Id

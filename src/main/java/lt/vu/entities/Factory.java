@@ -1,6 +1,7 @@
 package lt.vu.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import lombok.Setter;
 @Table(name = "FACTORY")
 @Getter @Setter
 @EqualsAndHashCode
-public class Factory {
+public class Factory implements Serializable {
     public Factory(){}
 
     @Id

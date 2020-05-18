@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Table(name = "OWNER")
 @Getter @Setter
 @EqualsAndHashCode
-public class Owner {
+public class Owner implements Serializable {
     public Owner(){}
 
     @Id
