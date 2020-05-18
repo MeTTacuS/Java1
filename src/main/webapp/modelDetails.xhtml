@@ -10,9 +10,7 @@
     <h3>Owners:</h3>
     <ol>
         <ui:repeat value="#{modelDetails.ownerList}" var="owner">
-            <ul>
-                <h:outputText value="#{owner.name}"/>
-            </ul>
+            <li><h:outputText value="#{owner.name}"/></li>
         </ui:repeat>
     </ol>
 
@@ -20,7 +18,7 @@
     <h:form>
         <h:selectOneMenu value="#{modelDetails.owner}" converter="omnifaces.SelectItemsConverter">
             <f:selectItem itemLabel="Choose owner" noSelectionOption="true"/>
-            <f:selectItems value="#{modelDetails.ownerListFree}" var="genre" itemLabel="#{owner.name}" itemValue="#{owner}"/>
+            <f:selectItems value="#{modelDetails.ownerListFree}" var="owner" itemLabel="#{owner.name}" itemValue="#{owner}"/>
         </h:selectOneMenu>
         <br/>
         <h:commandButton value="Add owner" action="#{modelDetails.addOwner}">

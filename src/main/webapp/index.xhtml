@@ -9,27 +9,26 @@
     <h2>Factories:</h2>
     <ol>
         <ui:repeat value="#{factories.allFactories}" var="factory">
-            <li><h:link value="#{factory.name} #{factories.loadAmountOfModels(factory.id)}" outcome="factoryModels?factoryId=#{factory.id}" /></li>
+            <li><h:link value="#{factory.name}. Models made: #{factories.loadAmountOfModels(factory.id)}" outcome="factoryModels?factoryId=#{factory.id}" /></li>
         </ui:repeat>
     </ol>
     <h:form>
         Name:
         <h:inputText value="#{factories.factoryToCreate.name}" required="true" />
-        <h:commandButton value="Add new factory" action="#{factories.createFactory}" />
+        <h:commandButton value="Add a new factory" action="#{factories.createFactory}" />
     </h:form>
 
-    <h2>Add a Owner:</h2>
+    <h2>Add an Owner:</h2>
     <ul>
         <ui:repeat value="#{owners.allOwners}" var="owner">
-            <ul>
-                <h:outputText value="#{owner.name}"/>
-            </ul>
+            <li><h:outputText value="#{owner.name}"/></li>
         </ui:repeat>
     </ul>
     <h:form>
-        Owner name:
+        Owner's name:
         <h:inputText value="#{owners.ownerToCreate.name}" required="true"/><br/>
-        <h:commandButton value="Add new owner" action="#{owners.createOwners}"/>
+        <h:commandButton value="Add new car owner" action="#{owners.createOwners}"/>
     </h:form>
+    <h:link outcome="myBatis/factories" value="MyBatis implementation"/>
 </h:body>
 </html>

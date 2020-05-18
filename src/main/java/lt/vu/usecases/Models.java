@@ -49,6 +49,6 @@ public class Models {
     public String createModel(){
         modelToCreate.setFactory(this.factory);
         modelsDAO.persist(modelToCreate);
-        return "ModelsOwners?faces-redirect=true&factoryId=" + this.factory.getId();
+        return "factoryModels?faces-redirect=true&factoryId=" + this.factory.getId();
     }
 }
