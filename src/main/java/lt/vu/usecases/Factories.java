@@ -6,6 +6,7 @@ import lt.vu.entities.Factory;
 import lt.vu.entities.Model;
 import lt.vu.persistence.FactoriesDAO;
 import lt.vu.persistence.ModelsDAO;
+import lt.vu.services.Capitalizer;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -20,6 +21,9 @@ public class Factories {
 
     @Inject
     private ModelsDAO modelsDAO;
+
+    @Inject
+    private Capitalizer capitalizer;
 
     @Getter @Setter
     private Factory factoryToCreate = new Factory();
@@ -43,6 +47,7 @@ public class Factories {
 
     @Transactional
     public String createFactory(){
+        factoryToCreate.setName(capitalizer.capitalize(factoryToCreate.getName()));
         factoriesDAO.persist(factoryToCreate);
         return "index?faces-redirect=true";
     }
