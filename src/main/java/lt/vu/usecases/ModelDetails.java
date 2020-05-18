@@ -10,7 +10,6 @@ import lt.vu.mybatis.model.Owner;
 import lt.vu.persistence.ModelsDAO;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -18,7 +17,6 @@ import java.util.List;
 import java.util.Map;
 
 @javax.enterprise.inject.Model
-@RequestScoped
 public class ModelDetails {
 
     @Inject

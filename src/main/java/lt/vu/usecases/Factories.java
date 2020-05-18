@@ -8,15 +8,11 @@ import lt.vu.persistence.FactoriesDAO;
 import lt.vu.persistence.ModelsDAO;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Map;
 
 @javax.enterprise.inject.Model
-@RequestScoped
 public class Factories {
 
     @Inject
@@ -37,6 +33,7 @@ public class Factories {
     @PostConstruct
     public void init(){ loadAllFactories(); }
 
+    @Transactional
     private void loadAllFactories() { allFactories = factoriesDAO.findAll(); }
 
     public Integer loadAmountOfModels(Integer modelId) {

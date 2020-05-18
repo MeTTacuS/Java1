@@ -16,6 +16,7 @@ import lombok.Setter;
 @Getter @Setter
 @EqualsAndHashCode
 public class Factory {
+    public Factory(){}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

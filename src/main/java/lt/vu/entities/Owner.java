@@ -17,6 +17,8 @@ import java.util.List;
 @Getter @Setter
 @EqualsAndHashCode
 public class Owner {
+    public Owner(){}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

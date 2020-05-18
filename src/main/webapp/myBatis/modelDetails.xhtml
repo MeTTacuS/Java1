@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head/>
+<h:body>
+    <h1>Model: "#{modelDetails.model.name}"</h1>
+    <h3>Factory: "#{modelDetails.model.factory.name}"</h3>
+
+    <h3>Owners:</h3>
+    <ol>
+        <ui:repeat value="#{modelDetails.ownerList}" var="owner">
+            <li><h:outputText value="#{owner.name}"/></li>
+        </ui:repeat>
+    </ol>
+
+    <h3>Add an owner:</h3>
+    <h:form>
+        <h:selectOneMenu value="#{modelDetails.owner}" converter="omnifaces.SelectItemsConverter">
+            <f:selectItem itemLabel="Choose owner" noSelectionOption="true"/>
+            <f:selectItems value="#{modelDetails.ownerListFree}" var="owner" itemLabel="#{owner.name}" itemValue="#{owner}"/>
+        </h:selectOneMenu>
+        <br/>
+        <h:commandButton value="Add owner" action="#{modelDetails.addOwner}">
+            <f:param name="modelId" value="#{modelDetails.model.id}"/>
+        </h:commandButton>
+    </h:form>
+</h:body>
+</html>

@@ -17,6 +17,8 @@ import java.util.List;
 @Getter @Setter
 @EqualsAndHashCode
 public class Model {
+    public Model() {}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -29,10 +31,10 @@ public class Model {
     private List<Owner> owners = new ArrayList<>();
 
     @ManyToOne
+    @JoinColumn(name = "FACTORY_ID")
     private Factory factory;
 
     @Version
     @Column(name = "OPT_LOCK_VERSION")
     private Integer version;
-
 }

@@ -16,10 +16,6 @@ public class FactoriesDAO {
         return em.createNamedQuery("Factory.findAll", Factory.class).getResultList();
     }
 
-    public void setEm(EntityManager em) {
-        this.em = em;
-    }
-
     public void persist(Factory factory){
         this.em.persist(factory);
     }
