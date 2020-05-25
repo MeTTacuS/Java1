@@ -6,6 +6,7 @@ import lt.vu.entities.Factory;
 import lt.vu.entities.Model;
 import lt.vu.persistence.FactoriesDAO;
 import lt.vu.persistence.ModelsDAO;
+import lt.vu.processors.ModelNameProcessor;
 
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
@@ -16,6 +17,9 @@ import java.util.Map;
 
 @javax.enterprise.inject.Model
 public class Models {
+
+    @Inject
+    ModelNameProcessor modelNameProcessor;
 
     @Inject
     private FactoriesDAO factoriesDAO;
@@ -47,6 +51,7 @@ public class Models {
     public String createModel(){
         modelToCreate.setFactory(this.factory);
         modelsDAO.persist(modelToCreate);
+        modelNameProcessor.process(modelToCreate);
         return "factoryModels?faces-redirect=true&factoryId=" + this.factory.getId();
     }
 }

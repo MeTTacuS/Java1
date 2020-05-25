@@ -7,7 +7,6 @@
 <h:head/>
 <h:body>
     <h1>Model: "#{modelDetails.model.name}"</h1>
-    <h3>Factory: "#{modelDetails.model.factory.name}"</h3>
 
     <h:form>
         <h:outputText value="name" />
@@ -25,7 +24,6 @@
                          action="#{findDuplicate.findPossibleDuplicate()}">
             <f:param name="modelId" value="#{updateModel.model.id}" />
         </h:commandButton>
-        <p:poll interval="1" update="duplicateFinderOutputText" />
     </h:form>
 
     <h3>Owners:</h3>
