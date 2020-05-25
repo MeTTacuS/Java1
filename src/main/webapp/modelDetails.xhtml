@@ -7,6 +7,17 @@
     <h1>Model: "#{modelDetails.model.name}"</h1>
     <h3>Factory: "#{modelDetails.model.factory.name}"</h3>
 
+    <h:form>
+        <h:outputText value="name" />
+        <h:inputText value="#{updateModel.model.name}" required="true" />
+        <h:commandButton value="update" action="#{updateModel.updateModelName()}">
+            <f:param name="modelId" value="#{updateModel.model.id}" />
+            <f:param name="factoryId" value="#{modelDetails.model.factory.id}"/>
+        </h:commandButton>
+        <h:outputText value="Value was already modified by other user. If you want to override it - try again"
+                      rendered="#{param['error'] == 'optimistic-lock-exception'}" />
+    </h:form>
+
     <h3>Owners:</h3>
     <ol>
         <ui:repeat value="#{modelDetails.ownerList}" var="owner">

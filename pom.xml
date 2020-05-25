@@ -63,7 +63,7 @@
                     <artifactId>mybatis-generator-maven-plugin</artifactId>
                     <version>1.4.0</version>
                     <configuration>
-                        <contexts>CarsDB3</contexts>
+                        <contexts>CarsDB7</contexts>
                         <verbose>true</verbose>
                     </configuration>
                     <executions>
