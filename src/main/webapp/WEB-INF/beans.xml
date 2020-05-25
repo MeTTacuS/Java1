@@ -11,6 +11,6 @@
     </interceptors>
 
     <alternatives>
-        <class>lt.vu.processors.ModelNameWithFactoryProcessor</class>
+        <class>lt.vu.processors.ModelNameLowercaseFactoryProcessor</class>
     </alternatives>
 </beans>
