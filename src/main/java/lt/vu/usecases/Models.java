@@ -7,6 +7,7 @@ import lt.vu.entities.Model;
 import lt.vu.persistence.FactoriesDAO;
 import lt.vu.persistence.ModelsDAO;
 import lt.vu.processors.ModelNameProcessor;
+import lt.vu.interceptors.LoggedInvocation;
 
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @javax.enterprise.inject.Model
+@LoggedInvocation
 public class Models {
 
     @Inject

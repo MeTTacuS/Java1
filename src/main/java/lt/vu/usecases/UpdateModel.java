@@ -15,10 +15,12 @@ import javax.persistence.OptimisticLockException;
 import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.Map;
+import lt.vu.interceptors.LoggedInvocation;
 
 @ViewScoped
 @Named
 @Getter @Setter
+@LoggedInvocation
 public class UpdateModel implements Serializable {
     private Model model;
 
