@@ -13,4 +13,8 @@
     <alternatives>
         <class>lt.vu.processors.ModelNameLowercaseFactoryProcessor</class>
     </alternatives>
+
+    <decorators>
+        <class>lt.vu.decorators.ModelNamesDecorator</class>
+    </decorators>
 </beans>
