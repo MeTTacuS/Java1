@@ -23,4 +23,6 @@ public class FactoriesDAO {
     public Factory findOne(Integer id) {
         return em.find(Factory.class, id);
     }
+
+    public Factory update(Factory factory) { return em.merge(factory); }
 }
